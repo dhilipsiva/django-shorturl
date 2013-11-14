@@ -11,3 +11,59 @@
 """
 
 """
+from shorturl.models import KeyPath
+from shorturl.utils import key_generator
+
+
+def get_key_path(*args, **kwargs):
+    """
+    Get Key path for given variables
+    """
+    try:
+        kp = KeyPath.objects.get(*args, **kwargs)
+        return kp.as_dict()
+    except Exception:
+        return None
+
+
+def get_path_for_key(key):
+    """
+    Using the key, fetch the path if it exsists
+    """
+    kp = get_key_path(key=key)
+    if kp:
+        return kp['path']
+    else:
+        return None
+
+
+def get_key_for_path(path):
+    """
+    Using the given path, fetch the key if it exsists
+    """
+    kp = get_key_path(path=path)
+    if kp:
+        return kp['key']
+    else:
+        return None
+
+
+def create_key_path(path):
+    """
+    Create a KeyPath for for the given path if it doesnt already exsist.
+    """
+    """
+    If the path already exsists, return it KeyPath
+    """
+    kp = get_key_path(path)
+    if kp:
+        return kp
+    # while not kp:
+    """
+    Make sure the key is unique
+    """
+    key = key_generator()
+    kp = get_path_for_key(key)
+    kp = KeyPath(key=key, path=path)
+    kp.save()
+    return kp.as_dict()

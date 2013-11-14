@@ -11,3 +11,16 @@
 """
 
 """
+from __future__ import unicode_literals
+
+__author__ = 'dhilipsiva'
+__version__ = (0, 1, 0)
+
+from shorturl.dbapi import create_key_path
+
+
+def shorten_path(path):
+    """
+    Shorten the given path if.
+    """
+    return create_key_path(path)

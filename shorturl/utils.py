@@ -9,5 +9,13 @@
 # Distributed under terms of the MIT license.
 
 """
-
+Some utility functions
 """
+# http://stackoverflow.com/q/2257441/1235072
+
+import string
+import random
+
+
+def key_generator(size=6, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for x in range(size))

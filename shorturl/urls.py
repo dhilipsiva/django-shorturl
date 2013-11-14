@@ -11,3 +11,15 @@
 """
 
 """
+# coding: utf-8
+
+# DJANGO IMPORTS
+try:
+    from django.conf.urls import url, patterns
+except ImportError:
+    # for Django version less then 1.4
+    from django.conf.urls.defaults import url, patterns
+from shorturl.views import expand
+urlpatterns = patterns(
+    '',
+    url(r'^(?P<key>[a-zA-Z0-9]{6})$', expand, name="expand"))
