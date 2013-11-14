@@ -18,7 +18,7 @@ except ImportError:
 setup(
     name='django-shorturl',
     version='0.1',
-    description='A very simple URL Shortener Django app',
+    description='A very simple URL Shortening Django app for your project.',
     author='dhilipsiva',
     author_email='dhilipsiva@gmail.com',
     url='http://dhilipsiva.github.io/django-shorturl/',
