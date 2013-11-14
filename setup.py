@@ -3,6 +3,7 @@
 # vim:fenc=utf-8
 #
 # Copyright © 2013 dhilipsiva <dhilipsiva@gmail.com>
+# http://dhilipsiva.github.io/django-shorturl/
 #
 # Distributed under terms of the MIT license.
 
@@ -20,7 +21,7 @@ setup(
     description='A very simple URL Shortener Django app',
     author='dhilipsiva',
     author_email='dhilipsiva@gmail.com',
-    url='http://github.com/dhilipsiva/django-shorturl/',
+    url='http://dhilipsiva.github.io/django-shorturl/',
     long_description=open('README.md', 'r').read(),
     packages=[
         'shorturl',
