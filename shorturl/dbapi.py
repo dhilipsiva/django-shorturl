@@ -48,6 +48,18 @@ def get_key_for_path(path):
         return None
 
 
+def _get_unique_key():
+    """
+    Get an unique key for shortening
+    """
+    key = key_generator()
+    kp = get_key_path(key=key)
+    if kp:
+        return _get_unique_key()
+    else:
+        return key
+
+
 def create_key_path(path):
     """
     Create a KeyPath for for the given path if it doesnt already exsist.
@@ -55,15 +67,10 @@ def create_key_path(path):
     """
     If the path already exsists, return it KeyPath
     """
-    kp = get_key_path(path)
+    kp = get_key_path(path=path)
     if kp:
         return kp
-    # while not kp:
-    """
-    Make sure the key is unique
-    """
-    key = key_generator()
-    kp = get_path_for_key(key)
+    key = _get_unique_key()
     kp = KeyPath(key=key, path=path)
     kp.save()
     return kp.as_dict()
