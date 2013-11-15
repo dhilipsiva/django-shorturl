@@ -26,28 +26,6 @@ def get_key_path(*args, **kwargs):
         return None
 
 
-def get_path_for_key(key):
-    """
-    Using the key, fetch the path if it exsists
-    """
-    kp = get_key_path(key=key)
-    if kp:
-        return kp['path']
-    else:
-        return None
-
-
-def get_key_for_path(path):
-    """
-    Using the given path, fetch the key if it exsists
-    """
-    kp = get_key_path(path=path)
-    if kp:
-        return kp['key']
-    else:
-        return None
-
-
 def _get_unique_key():
     """
     Get an unique key for shortening
