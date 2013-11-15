@@ -12,15 +12,15 @@
 
 """
 from django.http import HttpResponseRedirect
-from shorturl.dbapi import get_path_for_key
+from shorturl.dbapi import get_key_path
 
 
 def expand(request, key):
     """
     Expands the short url into actual url and redirects the request.
     """
-    path = get_path_for_key(key)
-    if path:
-        return HttpResponseRedirect(path)
+    kp = get_key_path(key)
+    if kp:
+        return HttpResponseRedirect(kp['path'])
     else:
         return HttpResponseRedirect("/404")
