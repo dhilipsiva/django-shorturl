@@ -21,7 +21,7 @@ def get_key_path(*args, **kwargs):
     """
     try:
         kp = KeyPath.objects.get(*args, **kwargs)
-        return kp.as_dict()
+        return kp
     except Exception:
         return None
 
@@ -52,3 +52,13 @@ def create_key_path(path):
     kp = KeyPath(key=key, path=path)
     kp.save()
     return kp.as_dict()
+
+
+def delete_key_path(path):
+    """
+    Delete a keypath
+    """
+    kp = get_key_path(path=path)
+    d = kp.as_dict()
+    kp.delete()
+    return d
