@@ -11,3 +11,6 @@
 """
 
 """
+from django.conf import settings
+SU_SHORT_DOMAIN = settings.SU_SHORT_DOMAIN
+SU_REDIRECT_DOMAIN = settings.SU_REDIRECT_DOMAIN
